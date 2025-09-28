@@ -1,0 +1,16 @@
+{
+  "name": "ff-cloud-optimizer",
+  "version": "4.0.0",
+  "description": "Free Fire Cloud Optimizer V4.0",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Build complete'",
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "axios": "^1.5.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^16.0.0"
+  }
+}
