@@ -1,15 +1,24 @@
 [build]
   functions = "netlify/functions"
-    publish = "."
+  publish = "."
 
-    [functions]
-      node_bundler = "esbuild"
+[functions]
+  node_bundler = "esbuild"
+  
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
 
-      [[redirects]]
-        from = "/api/*"
-          to = "/.netlify/functions/:splat"
-            status = 200
+[dev]
+  functions = "netlify/functions"
+  publish = "."
+  port = 8888
 
-            [dev]
-              functions = "netlify/functions"
-                publish = "."
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
